@@ -54,7 +54,6 @@ const editPost = (id, data) => {
             title: data.title,
             content: data.content,
             header_image: data.header_image,
-            user_id: "uuid",//Aqui hara referencia al usuario de tu userDB
             published: true
         }
         return postDB[index]
