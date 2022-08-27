@@ -1,9 +1,6 @@
 //* Dependencias
 const express = require('express')
 const config = require('./config')
-const passport = require('passport')
-const { verbMiddleware } = require('./middleware/ejemplos/verb')
-require('./middleware/auth.middleware')(passport)
 
 
 //* Archivos de Rutas

@@ -1,17 +1,15 @@
 const router = require('express').Router()
+const passport = require('passport')
+require('../middleware/auth.middleware')(passport)
 
 const postServices = require('./post.http')
 
-
-router.route('/')
-    .post(postServices.register)
+router.route('/') //* /api/v1/post/
     .get(postServices.getAll)
+    .post(passport.authenticate('jwt',{session: false}), postServices.register)
 
 
 router.route('/:id')
-    .get(postServices.getById)
+    .get(passport.authenticate('jwt', {session: false}),postServices.getById)
 
-
-module.exports ={
-    router
-}
+exports.router = router
